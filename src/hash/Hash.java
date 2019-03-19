@@ -1,16 +1,18 @@
 package hash;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Hash {
 
-    public void solution() {
+    public void marathon() {
 
-        String participant[] = {"hyen", "bogum", "zico"};
-        String completion[] = {"zico", "hyen"};
+        String participant[] = {"", "", "", ""};
+        String completion[] = {"", "", ""};
 
         String answer = "";
+
+//        String participantNew[] = Arrays.stream(participant).distinct();
+
 
         Map<Integer, String> phash = new HashMap();
         Map<Integer, String> chash = new HashMap();
@@ -27,12 +29,49 @@ public class Hash {
             chash.put(num1++, name);
         }
 
+
+
         for(int i=0; i<participant.length ; i++){
             if( ! chash.containsValue(phash.get(i)) ){
                 answer = phash.get(i);
             }
         }
 
+        if(answer.isEmpty()){
+
+        }
+
+
+    }
+
+    public void phoneBook(){
+        String phoneBook1[] = {"119", "97674223", "1195524421"};
+        String phoneBook2[] = {"123", "456", "789"};
+        String phoneBook3[] = {"12", "123", "1235", "567", "88"};
+
+        boolean answer = true;
+
+        Map<Integer, String> phoneHash = new HashMap();
+
+        Integer num = 0;
+        List<Boolean> result = new ArrayList<>();
+
+        for(String phoneNum : phoneBook1){
+            phoneHash.put(num++, phoneNum);
+        }
+
+
+        for(String pnum : phoneBook1){
+            for(int i=0 ; i < phoneBook1.length ; i++){
+                if(! pnum.equals(phoneHash.get(i))){
+                    result.add(!(phoneHash.get(i).contains(pnum)));
+                }
+            }
+        }
+
+        if(result.contains(false)) answer = false;
+
         System.out.println(answer);
     }
+
 }
