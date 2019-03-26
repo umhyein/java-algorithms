@@ -74,4 +74,50 @@ public class Hash {
         System.out.println(answer);
     }
 
+    public void mask(){
+        String[][] clothes = {{"yellow_hat", "headgear"},{"blue_sunglasses", "eyewear"},{"green_turban", "headgear"}};
+
+        int answer = 0;
+
+        Map<String, String> clothMap = new HashMap<>();
+        List<String> allClothes  = new ArrayList<>();
+        Set<String> clothCategory = new HashSet<>();
+
+        for(String[] cloth : clothes){
+            String[] clothesList = cloth;
+            clothMap.put(clothesList[0], clothesList[1]);
+            allClothes.add(clothesList[0]);
+            clothCategory.add(clothesList[1]);
+        }
+
+        Map<String,Integer> report = new HashMap<>();
+        List<String> clothList = new ArrayList<>();
+        Iterator<String> iteratorSet = clothCategory.iterator();
+
+        while (iteratorSet.hasNext()){
+            String clothName = iteratorSet.next();
+            Integer num = 0;
+            for(String cloth : allClothes){
+               if(clothName.equals(clothMap.get(cloth))){
+                   ++num;
+                }
+            }
+            report.put(clothName, num);
+            clothList.add(clothName);
+        }
+
+
+        for(int j=1; j<clothList.size()+1; j++){
+            if(clothList.size()+1 <= 1){
+
+            }else{
+                Math.
+            }
+            answer =+ report.get(clothList.get(j));
+            Math.
+        }
+
+
+
+    }
 }
