@@ -6,12 +6,12 @@ public class Hash {
 
     public void marathon() {
 
-        String participant[] = {"", "", "", ""};
-        String completion[] = {"", "", ""};
+        String participant[] = {"hy", "hy", "hi", "yj"};
+        String completion[] = {"hy", "hi", "yj"};
 
         String answer = "";
 
-//        String participantNew[] = Arrays.stream(participant).distinct();
+        String participantNew[] = Arrays.stream(participant).distinct().toArray(String[]::new);
 
 
         Map<Integer, String> phash = new HashMap();
@@ -37,10 +37,16 @@ public class Hash {
             }
         }
 
-        if(answer.isEmpty()){
 
+        if(answer.isEmpty()){
+            for(int j =0; j<participantNew.length ; j++) {
+                if(participant[j].equals(participantNew[j])){
+                    answer = participant[j];
+                }
+            }
         }
 
+        System.out.println("what");
 
     }
 

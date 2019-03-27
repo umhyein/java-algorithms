@@ -6,7 +6,8 @@ public class Main {
 
         Hash hash = new Hash();
         hash.marathon();
-        hash.phoneBook();
+        System.out.println("test");
+//        hash.phoneBook();
 
     }
 }
