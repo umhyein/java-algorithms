@@ -1,6 +1,7 @@
 package hash;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hash {
 
@@ -83,18 +84,18 @@ public class Hash {
     public void mask(){
         String[][] clothes = {{"yellow_hat", "headgear"},{"blue_sunglasses", "eyewear"},{"green_turban", "headgear"}};
 
-        int answer = 0;
+        int answer = 1;
 
         Map<String, String> clothMap = new HashMap<>();
         List<String> allClothes  = new ArrayList<>();
         Set<String> clothCategory = new HashSet<>();
 
         for(String[] cloth : clothes){
-            String[] clothesList = cloth;
-            clothMap.put(clothesList[0], clothesList[1]);
-            allClothes.add(clothesList[0]);
-            clothCategory.add(clothesList[1]);
+            clothMap.put(cloth[0], cloth[1]);
+            allClothes.add(cloth[0]);
+            clothCategory.add(cloth[1]);
         }
+
 
         Map<String,Integer> report = new HashMap<>();
         List<String> clothList = new ArrayList<>();
@@ -113,17 +114,20 @@ public class Hash {
         }
 
 
-        for(int j=1; j<clothList.size()+1; j++){
-            if(clothList.size()+1 <= 1){
-
-            }else{
-                Math.
-            }
-            answer =+ report.get(clothList.get(j));
-            Math.
+        for(int j=clothList.size()-1 ; j >= 0; j--){
+            answer *= report.get(clothList.get(j))+1;
         }
 
+        answer -= 1;
 
+//        Map<String, Long> mapCnt = Arrays.stream(clothes).collect(Collectors.groupingBy( s -> s[1], Collectors.counting()));
+//        System.out.println(mapCnt);
+//
+//        for(Map<String, Long> report : mapCnt){
+//
+////        }
+//        Map<String, Integer> hashMap = new HashMap<>();
+//        Arrays.stream(array).forEach(s -> hashMap.put(s[1], !hashMap.containsKey(s[1]) ? 1 : hashMap.get(s[1])+1));
 
     }
 }
