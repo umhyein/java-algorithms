@@ -107,17 +107,6 @@ public class Hash {
         }
 
 
-        for(int j=1; j<clothList.size()+1; j++){
-            if(clothList.size()+1 <= 1){
-
-            }else{
-                Math.
-            }
-            answer =+ report.get(clothList.get(j));
-            Math.
-        }
-
-
 
     }
 }
