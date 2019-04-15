@@ -1,17 +1,18 @@
 package hash;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hash {
 
     public void marathon() {
 
-        String participant[] = {"", "", "", ""};
-        String completion[] = {"", "", ""};
+        String participant[] = {"hy", "hy", "hi", "yj"};
+        String completion[] = {"hy", "hi", "yj"};
 
         String answer = "";
 
-//        String participantNew[] = Arrays.stream(participant).distinct();
+        String participantNew[] = Arrays.stream(participant).distinct().toArray(String[]::new);
 
 
         Map<Integer, String> phash = new HashMap();
@@ -37,10 +38,16 @@ public class Hash {
             }
         }
 
-        if(answer.isEmpty()){
 
+        if(answer.isEmpty()){
+            for(int j =0; j<participantNew.length ; j++) {
+                if(participant[j].equals(participantNew[j])){
+                    answer = participant[j];
+                }
+            }
         }
 
+        System.out.println("what");
 
     }
 
@@ -77,18 +84,18 @@ public class Hash {
     public void mask(){
         String[][] clothes = {{"yellow_hat", "headgear"},{"blue_sunglasses", "eyewear"},{"green_turban", "headgear"}};
 
-        int answer = 0;
+        int answer = 1;
 
         Map<String, String> clothMap = new HashMap<>();
         List<String> allClothes  = new ArrayList<>();
         Set<String> clothCategory = new HashSet<>();
 
         for(String[] cloth : clothes){
-            String[] clothesList = cloth;
-            clothMap.put(clothesList[0], clothesList[1]);
-            allClothes.add(clothesList[0]);
-            clothCategory.add(clothesList[1]);
+            clothMap.put(cloth[0], cloth[1]);
+            allClothes.add(cloth[0]);
+            clothCategory.add(cloth[1]);
         }
+
 
         Map<String,Integer> report = new HashMap<>();
         List<String> clothList = new ArrayList<>();
@@ -106,6 +113,20 @@ public class Hash {
             clothList.add(clothName);
         }
 
+        for(int j=clothList.size()-1 ; j >= 0; j--){
+            answer *= report.get(clothList.get(j))+1;
+        }
+
+        answer -= 1;
+
+//        Map<String, Long> mapCnt = Arrays.stream(clothes).collect(Collectors.groupingBy( s -> s[1], Collectors.counting()));
+//        System.out.println(mapCnt);
+//
+//        for(Map<String, Long> report : mapCnt){
+//
+////        }
+//        Map<String, Integer> hashMap = new HashMap<>();
+//        Arrays.stream(array).forEach(s -> hashMap.put(s[1], !hashMap.containsKey(s[1]) ? 1 : hashMap.get(s[1])+1));
 
 
     }
